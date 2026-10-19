@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#6fb8ee">
+<title>Tree Clicker: Grow Your Tree</title>
+<style>
+:root{--sky1:#6fb8ee;--sky2:#cfeaff;--text:#17301f;--mute:#35503f;--card:#ffffffb3;--edge:#ffffff99;--accent:#2f7a22;--accent-t:#fff;--ground:#7fa65a;--leaf:#4f9a3a;--leaf2:#6bb34c;
+color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sky1:#0a1a38;--sky2:#1d4373;--text:#e6f0dc;--mute:#a9c2a0;--card:#1b261bb3;--edge:#ffffff26;--accent:#7cc460;--accent-t:#0f1e0b;--ground:#2d4a2a;color-scheme:dark}}
+:root[data-theme="dark"]{--sky1:#0a1a38;--sky2:#1d4373;--text:#e6f0dc;--mute:#a9c2a0;--card:#1b261bb3;--edge:#ffffff26;--accent:#7cc460;--accent-t:#0f1e0b;--ground:#2d4a2a;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--sky1);background:linear-gradient(var(--sky1),var(--sky2));min-height:100vh;color:var(--text);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+.wrap{max-width:760px;margin:0 auto;padding:18px 20px 40px;text-align:center}
+.brand{display:flex;align-items:center;justify-content:center;gap:10px;font-size:20px}
+.brand svg{width:34px;height:34px;border-radius:9px}
+.hero{position:relative;padding:28px 0 8px}
+h1{font-size:clamp(38px,9vw,64px);line-height:1.05;font-weight:400;margin:18px 0 12px}
+.lead{max-width:520px;margin:0 auto 26px;color:var(--mute);font-size:19px;line-height:1.5}
+.play{display:inline-flex;align-items:center;gap:12px;background:var(--accent);color:var(--accent-t);text-decoration:none;font-size:24px;padding:18px 44px;border-radius:999px;box-shadow:0 10px 28px #0a1a3855,inset 0 1px 0 #ffffff55;transition:transform .15s}
+.play:hover{transform:translateY(-2px) scale(1.03)}.play:active{transform:scale(.97)}
+.play:focus-visible{outline:3px solid var(--text);outline-offset:4px}
+.small{margin-top:14px;color:var(--mute);font-size:14px}
+.tree{width:min(300px,70vw);margin:26px auto 0;display:block;transform-origin:50% 100%;animation:sway 4s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-1.6deg)}to{transform:rotate(1.6deg)}}
+.cloud{position:absolute;background:#fff;border-radius:99px;opacity:.8;animation:drift 18s linear infinite alternate}
+.cloud::after{content:"";position:absolute;left:22%;top:-45%;width:50%;height:140%;background:inherit;border-radius:50%}
+@keyframes drift{to{transform:translateX(40px)}}
+.ground{height:40px;background:var(--ground);margin:-4px -20px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:34px 0 28px;text-align:left}
+.card{background:var(--card);border:1px solid var(--edge);border-radius:24px;padding:18px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:inset 0 1px 0 #ffffff66}
+.card i{font-style:normal;font-size:28px;display:block;margin-bottom:6px}
+.card b{display:block;font-size:19px;font-weight:600;margin-bottom:4px}
+.card span{color:var(--mute);font-size:15px;line-height:1.45}
+footer{color:var(--mute);font-size:14px;line-height:1.7}
+footer a{color:var(--text)}
+@media (prefers-reduced-motion:reduce){.tree,.cloud{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><svg viewBox="0 0 120 120" aria-hidden="true"><rect width="120" height="120" rx="26" fill="#cfeaff"/><rect y="92" width="120" height="28" fill="#7fa65a"/><path d="M52 100q3-24 3-40h10q0 16 3 40z" fill="#7a5230"/><circle cx="60" cy="48" r="26" fill="#4f9a3a"/><circle cx="40" cy="60" r="19" fill="#6bb34c"/><circle cx="80" cy="60" r="19" fill="#6bb34c"/><circle cx="60" cy="34" r="16" fill="#4f9a3a"/></svg>Tree Clicker</div>
+  <section class="hero">
+    <div class="cloud" style="width:90px;height:26px;left:2%;top:40px"></div>
+    <div class="cloud" style="width:70px;height:20px;right:4%;top:110px;animation-duration:24s"></div>
+    <h1>Grow your tree.<br>One tap at a time.</h1>
+    <p class="lead">Tap the tree, earn points and level it up all the way to one million. Unlock neon, pixel, crystal and magic trees along the way.</p>
+    <a class="play" id="play" href="game.html">▶ Play now</a>
+    <div class="small">Free · Runs right in your browser · Works great on phones</div>
+    <svg class="tree" viewBox="0 0 280 290" aria-hidden="true"><ellipse cx="140" cy="284" rx="90" ry="6" fill="#000" opacity=".12"/><path d="M128 284Q134 230 134 175L146 175Q146 230 152 284Z" fill="#7a5230"/><circle cx="140" cy="120" r="62" fill="#4f9a3a"/><circle cx="96" cy="150" r="46" fill="#6bb34c"/><circle cx="184" cy="150" r="46" fill="#6bb34c"/><circle cx="140" cy="84" r="44" fill="#4f9a3a"/><circle cx="108" cy="102" r="30" fill="#6bb34c"/><circle cx="176" cy="104" r="30" fill="#6bb34c"/></svg>
+    <div class="ground"></div>
+  </section>
+  <section class="grid" aria-label="Features">
+    <div class="card"><i>🌱</i><b>Tap to grow</b><span>Every tap earns points. Chain quick taps for combos and catch golden apples for big bonuses.</span></div>
+    <div class="card"><i>⭕</i><b>Hold to level up</b><span>Press and hold the upgrade ring. Keep holding and it speeds up, all the way to level 1,000,000.</span></div>
+    <div class="card"><i>🛍️</i><b>Shop</b><span>Swap points for coins, then buy tree styles, avatar frames and titles.</span></div>
+    <div class="card"><i>🎬</i><b>Moments</b><span>Watch the latest videos right inside the game and share clips with other players.</span></div>
+    <div class="card"><i>🍂</i><b>Real seasons</b><span>Your tree changes colors with the real seasons: spring, summer, autumn and winter.</span></div>
+    <div class="card"><i>👥</i><b>Multiple accounts</b><span>Add more accounts, each with its own progress, avatar frame and title.</span></div>
+  </section>
+  <footer>Made by Zarekron · <a href="https://www.youtube.com/@zarekron" target="_blank" rel="noopener">YouTube</a></footer>
+</div>
+</body>
+</html>
